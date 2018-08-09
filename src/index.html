@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <title>Lazy Ads with jQuery inview</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
+  <script async src="//acdn.adnxs.com/prebid/not-for-prod/prebid.js"></script>
+  <script>
+    var PREBID_TIMEOUT = 1000;
+
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+  </script>
+
+  <script>
+    googletag.cmd.push(function () {
+      googletag.pubads().disableInitialLoad();
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Lazy Ads with jQuery inview</h1>
+  <div id='div-1'>
+  </div>
+
+  <script id="ad-template" type="text/x-handlebars-template">
+    {{#each ads}}
+      <div class="component">
+        {{> Ad}}
+      </div>
+    {{/each}}
+  </script>
+  <script id="ad-partial" type="text/x-handlebars-template">
+    <div id="div-da-{{adTitle}}-wrapper" class="dad-spot">
+        <div id="div-da-{{adTitle}}" class="adunit inview dad-dynamic da-content" data-trigger="inviewAd">
+        </div>
+        <span class="da-center">Advertisement</span>
+    </div>
+	</script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.1.1.js"></script>
+  <script async src="/js/jquery.inview.js"></script>
+  <script defer src="/js/app.js"></script>
+</body>
+
+</html>
