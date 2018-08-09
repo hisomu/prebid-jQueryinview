@@ -1,7 +1,6 @@
 var browserSync = require('browser-sync').create();
 var del = require('del');
 var gulp = require('gulp');
-var gulpif = require('gulp-if');
 var sequence = require('run-sequence');
 var uglify = require('gulp-uglify');
 var csso = require('gulp-csso');
